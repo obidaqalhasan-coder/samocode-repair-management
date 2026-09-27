@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\DeviceAccessory.cs" />
+    <Compile Include="Models\IntakeCondition.cs" />
+    <Compile Include="Models\RepairOrder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -74,7 +79,6 @@
     <Folder Include="Database\" />
     <Folder Include="Data\" />
     <Folder Include="Forms\" />
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
