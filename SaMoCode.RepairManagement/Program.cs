@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaMoCode.RepairManagement.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace SaMoCode.RepairManagement
@@ -13,6 +14,7 @@ namespace SaMoCode.RepairManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
         }
     }
 }
