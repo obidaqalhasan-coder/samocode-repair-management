@@ -1,4 +1,4 @@
-﻿using SaMoCode.RepairManagement.Services;
+using SaMoCode.RepairManagement.Services;
 using System;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -8,19 +8,33 @@ namespace SaMoCode.RepairManagement.Forms
     public partial class CustomerForm : Form
     {
         private readonly CustomerService _customerService;
+        private readonly SaMoCode.RepairManagement.Models.Customer _original;
 
-        public CustomerForm()
+        public CustomerForm(SaMoCode.RepairManagement.Models.Customer original = null)
         {
             InitializeComponent();
 
             _customerService = new CustomerService();
+            _original=original;
+            txtName.MaxLength=100;txtPhoneNumber.MaxLength=30;txtNotes.MaxLength=500;
+            if(original!=null)
+            {
+                Text="Edit Customer";lblTitle.Text=Text;lblSubtitle.Text="Update customer contact details.";
+                txtName.Text=original.Name;txtPhoneNumber.Text=original.PhoneNumber;txtNotes.Text=original.Notes;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                int customerId = _customerService.AddCustomer(
+                int customerId;
+                if(_original!=null)
+                {
+                    _customerService.UpdateCustomer(_original,txtName.Text,txtPhoneNumber.Text,txtNotes.Text);
+                    customerId=_original.CustomerId;
+                }
+                else customerId = _customerService.AddCustomer(
                     txtName.Text,
                     txtPhoneNumber.Text,
                     txtNotes.Text);

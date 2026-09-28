@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SaMoCode.RepairManagement.Models
 {
@@ -9,6 +9,8 @@ namespace SaMoCode.RepairManagement.Models
         public int DeviceId { get; set; }
 
         public int TechnicianId { get; set; }
+
+        public string TechnicianName { get; set; }
 
         public DateTime AssignedAt { get; set; }
 

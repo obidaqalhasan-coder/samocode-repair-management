@@ -1,4 +1,4 @@
-﻿CREATE DATABASE SaMoCodeRepairManagement;
+CREATE DATABASE SaMoCodeRepairManagement;
 GO
 
 USE SaMoCodeRepairManagement;
@@ -184,6 +184,11 @@ CREATE TABLE TechnicianAssignments
         FOREIGN KEY (TechnicianId)
         REFERENCES Technicians(TechnicianId)
 );
+GO
+
+CREATE UNIQUE INDEX UX_TechnicianAssignments_CurrentDevice
+    ON dbo.TechnicianAssignments(DeviceId)
+    WHERE UnassignedAt IS NULL;
 GO
 
 INSERT INTO IntakeConditions (Name)

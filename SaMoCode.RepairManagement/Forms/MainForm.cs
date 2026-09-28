@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -52,16 +52,23 @@ namespace SaMoCode.RepairManagement.Forms
 
             SetActiveButton(btnCustomers);
         }
-
         private void btnRepairs_Click(object sender, EventArgs e)
         {
             pnlContent.Controls.Clear();
+
+            RepairsPage page = new RepairsPage
+            {
+                Dock = DockStyle.Fill
+            };
+
+            pnlContent.Controls.Add(page);
+
             SetActiveButton(btnRepairs);
         }
-
         private void btnTechnicians_Click(object sender, EventArgs e)
         {
             pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(new TechniciansPage { Dock = DockStyle.Fill });
             SetActiveButton(btnTechnicians);
         }
 
